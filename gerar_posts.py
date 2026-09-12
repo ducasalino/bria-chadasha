@@ -16,7 +16,7 @@ for item in produtos:
     link = item["link"]
     imagem = item["imagem"]
 
-    # Card HTML da vitrine (com data-title para busca rápida)
+    # Card HTML da vitrine (com data-title para busca rapida)
     cards_html += f"""
         <div class="card" data-title="{nome.lower()}">
             <img src="{imagem}" alt="{nome}" class="card-img">
@@ -44,7 +44,7 @@ Achadinho imperdível no Mercado Livre! 🔥
 \n"""
     legendas_insta.append(legenda)
 
-# 3. Template com barra de pesquisa interativa
+# 3. Template com barra de busca esticada e fina
 html_template = f"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -143,16 +143,15 @@ html_template = f"""<!DOCTYPE html>
             margin-top: 6px;
         }}
 
-        /* Barra de pesquisa */
         /* Barra de pesquisa mais esticada e fina */
-        .search-container {
+        .search-container {{
             width: 100%;
             max-width: 680px;
             margin-bottom: 28px;
             position: relative;
             z-index: 2;
-        }
-        .search-input {
+        }}
+        .search-input {{
             width: 100%;
             padding: 9px 18px 9px 40px;
             border-radius: 20px;
@@ -164,12 +163,12 @@ html_template = f"""<!DOCTYPE html>
             box-shadow: 0 2px 8px rgba(11, 37, 69, 0.04);
             outline: none;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-        .search-input:focus {
+        }}
+        .search-input:focus {{
             border-color: #0b2545;
             box-shadow: 0 4px 14px rgba(11, 37, 69, 0.08);
-        }
-        .search-icon {
+        }}
+        .search-icon {{
             position: absolute;
             left: 14px;
             top: 50%;
@@ -177,9 +176,9 @@ html_template = f"""<!DOCTYPE html>
             font-size: 0.85rem;
             color: #8da9c4;
             pointer-events: none;
-        }
+        }}
 
-        /* Mensagem quando nenhum produto é encontrado */
+        /* Mensagem quando nenhum produto e encontrado */
         .empty-search {{
             display: none;
             text-align: center;
@@ -282,7 +281,7 @@ html_template = f"""<!DOCTYPE html>
         <p class="subtitle">Ofertas & Achados</p>
     </header>
 
-    <!-- Caixa de Busca -->
+    <!-- Caixa de Busca mais fina e esticada -->
     <div class="search-container">
         <span class="search-icon">🔍</span>
         <input type="text" id="searchInput" class="search-input" placeholder="Buscar achadinho por nome...">
@@ -297,7 +296,7 @@ html_template = f"""<!DOCTYPE html>
         ✨ "Eis que tudo se fez novo."
     </footer>
 
-    <!-- Script de Busca Instantânea -->
+    <!-- Script de Busca Instantanea -->
     <script>
         const searchInput = document.getElementById('searchInput');
         const cards = document.querySelectorAll('.card');
@@ -332,6 +331,6 @@ with open("index.html", "w", encoding="utf-8") as f:
 with open("legendas_instagram.txt", "w", encoding="utf-8") as f:
     f.writelines(legendas_insta)
 
-print(" Tudo pronto!")
-print(" Vitrine index.html atualizada com barra de busca instantânea!")
-print(" Arquivo 'legendas_instagram.txt' atualizado!")
+print("Tudo pronto!")
+print("Vitrine index.html atualizada com a barra de busca corrigida e esticada!")
+print("Arquivo 'legendas_instagram.txt' atualizado!")
