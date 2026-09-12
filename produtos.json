@@ -62,5 +62,13 @@
     "comissao": "60% OFF",
     "link": "https://meli.la/2ab7bb7",
     "imagem": "fotos/fotos/mini_mixer.png"
+  },
+  {
+    "id": 9,
+    "produto": "Bola Elétrica Interativa Brinquedo Inteligente Para Gato e Cachorro",
+    "preco": "R$ 19,90",
+    "comissao": "Mais Vendido",
+    "link": "https://meli.la/1XJNfWH",
+    "imagem": "fotos/fotos/bola_interativa.png"
   }
 ]
