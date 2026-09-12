@@ -1,190 +1,203 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Briá Chadashá | Vitrine de Ofertas</title>
-  <style>
-    :root {
-      --bg: #F4F1EA;
-      --card-bg: #FFFFFF;
-      --primary: #0A2540;
-      --accent: #E05A47;
-      --text-muted: #556B82;
-      --border: #E2DDD5;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-    body {
-      background-color: var(--bg);
-      color: var(--primary);
-      display: flex;
-      justify-content: center;
-      padding: 32px 16px;
-    }
-    .container {
-      width: 100%;
-      max-width: 440px;
-      text-align: center;
-    }
-    .brand-title {
-      font-size: 1.3rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--primary);
-    }
-    .brand-subtitle {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-      margin-bottom: 24px;
-    }
-    .product-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .product-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 14px;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-    }
-    .product-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(10, 37, 64, 0.08);
-    }
-    .product-thumb {
-      width: 58px;
-      height: 58px;
-      border-radius: 8px;
-      object-fit: contain;
-      background-color: #FAFAFA;
-      border: 1px solid var(--border);
-      flex-shrink: 0;
-    }
-    .product-info {
-      text-align: left;
-      flex-grow: 1;
-    }
-    .product-name {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--primary);
-      line-height: 1.25;
-    }
-    .product-price {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-top: 4px;
-    }
-    .btn-buy {
-      background-color: var(--primary);
-      color: #FFF;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    footer {
-      margin-top: 32px;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briá Chadashá | Vitrine de Ofertas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background-color: #f7f5f0;
+            color: #1a202c;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #0b2545;
+            text-transform: uppercase;
+        }
+        p.subtitle {
+            font-size: 0.95rem;
+            color: #718096;
+            margin-top: 5px;
+        }
+        /* Grid responsivo: organiza lado a lado */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+        .card-img {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 8px;
+            background-color: #edf2f7;
+            flex-shrink: 0;
+        }
+        .card-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #2d3748;
+            line-height: 1.3;
+            margin-bottom: 6px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .card-price {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #dd6b20;
+        }
+        .btn-oferta {
+            background-color: #0b2545;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: background 0.2s ease;
+            flex-shrink: 0;
+        }
+        .btn-oferta:hover {
+            background-color: #134074;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #a0aec0;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo-container">
-      <h1 class="brand-title">Briá Chadashá</h1>
-      <p class="brand-subtitle">Achadinhos & Ofertas Selecionadas</p>
-    </div>
+    <header>
+        <h1>Briá Chadashá</h1>
+        <p class="subtitle">Achadinhos & Ofertas Selecionadas</p>
+    </header>
 
-    <div class="product-list">
-
-      <a href="https://meli.la/2mXv6JZ" target="_blank" rel="noopener noreferrer" class="product-card">
-        <img src="fotos/fotos/creatina.png" alt="Creatina 1kg Monohidratada Soldiers Nutrition" class="product-thumb" />
-        <div class="product-info">
-          <div class="product-name">Creatina 1kg Monohidratada Soldiers Nutrition</div>
-          <div class="product-price">R$ 77,90</div>
+    <main class="container">
+        
+        <div class="card">
+            <img src="fotos/fotos/creatina.png" alt="Creatina 1kg Monohidratada Soldiers Nutrition" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Creatina 1kg Monohidratada Soldiers Nutrition</h3>
+                <span class="card-price">R$ 77,90</span>
+            </div>
+            <a href="https://meli.la/2mXv6JZ" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
-        <span class="btn-buy">Ver Oferta</span>
-      </a>
     
-      <a href="https://meli.la/13Ri2S2" target="_blank" rel="noopener noreferrer" class="product-card">
-        <img src="fotos/fotos/refletor_led.png" alt="Kit 2 Refletor Super Led 400w" class="product-thumb" />
-        <div class="product-info">
-          <div class="product-name">Kit 2 Refletor Super Led 400w</div>
-          <div class="product-price">R$ 43,77</div>
+        <div class="card">
+            <img src="fotos/fotos/refletor_led.png" alt="Kit 2 Refletor Super Led 400w" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Kit 2 Refletor Super Led 400w</h3>
+                <span class="card-price">R$ 43,77</span>
+            </div>
+            <a href="https://meli.la/13Ri2S2" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
-        <span class="btn-buy">Ver Oferta</span>
-      </a>
     
-      <a href="https://meli.la/1CmKTrx" target="_blank" rel="noopener noreferrer" class="product-card">
-        <img src="fotos/fotos/faqueiro_tramontina.png" alt="Jogo de Talheres Faqueiro Búzios Tramontina 24 Peças Inox" class="product-thumb" />
-        <div class="product-info">
-          <div class="product-name">Jogo de Talheres Faqueiro Búzios Tramontina 24 Peças Inox</div>
-          <div class="product-price">R$ 57,79</div>
+        <div class="card">
+            <img src="fotos/fotos/faqueiro_tramontina.png" alt="Jogo de Talheres Faqueiro Búzios Tramontina 24 Peças Inox" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Jogo de Talheres Faqueiro Búzios Tramontina 24 Peças Inox</h3>
+                <span class="card-price">R$ 57,79</span>
+            </div>
+            <a href="https://meli.la/1CmKTrx" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
-        <span class="btn-buy">Ver Oferta</span>
-      </a>
     
-      <a href="https://meli.la/1tCg8qh" target="_blank" rel="noopener noreferrer" class="product-card">
-        <img src="fotos/fotos/espremedor_mondial.png" alt="Espremedor de Frutas Mondial Premium 30W E-02 Jarra 1,25L" class="product-thumb" />
-        <div class="product-info">
-          <div class="product-name">Espremedor de Frutas Mondial Premium 30W E-02 Jarra 1,25L</div>
-          <div class="product-price">R$ 62,00</div>
+        <div class="card">
+            <img src="fotos/fotos/espremedor_mondial.png" alt="Espremedor de Frutas Mondial Premium 30W E-02 Jarra 1,25L" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Espremedor de Frutas Mondial Premium 30W E-02 Jarra 1,25L</h3>
+                <span class="card-price">R$ 62,00</span>
+            </div>
+            <a href="https://meli.la/1tCg8qh" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
-        <span class="btn-buy">Ver Oferta</span>
-      </a>
     
-      <a href="https://meli.la/22aaZVK" target="_blank" rel="noopener noreferrer" class="product-card">
-        <img src="fotos/fotos/molde_hamburguer.png" alt="Molde Para Hambúrguer Caseiro Forma De Alumínio Multiuso" class="product-thumb" />
-        <div class="product-info">
-          <div class="product-name">Molde Para Hambúrguer Caseiro Forma De Alumínio Multiuso</div>
-          <div class="product-price">R$ 24,70</div>
+        <div class="card">
+            <img src="fotos/fotos/molde_hamburguer.png" alt="Molde Para Hambúrguer Caseiro Forma De Alumínio Multiuso" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Molde Para Hambúrguer Caseiro Forma De Alumínio Multiuso</h3>
+                <span class="card-price">R$ 24,70</span>
+            </div>
+            <a href="https://meli.la/22aaZVK" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
-        <span class="btn-buy">Ver Oferta</span>
-      </a>
     
-      <a href="https://meli.la/1cnm2Sf" target="_blank" rel="noopener noreferrer" class="product-card">
-        <img src="fotos/fotos/potes_hermeticos.png" alt="Kit 21 Peças Potes Herméticos C/ Tampas Premium Alta Qualidade" class="product-thumb" />
-        <div class="product-info">
-          <div class="product-name">Kit 21 Peças Potes Herméticos C/ Tampas Premium Alta Qualidade</div>
-          <div class="product-price">R$ 35,88</div>
+        <div class="card">
+            <img src="fotos/fotos/potes_hermeticos.png" alt="Kit 21 Peças Potes Herméticos C/ Tampas Premium Alta Qualidade" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Kit 21 Peças Potes Herméticos C/ Tampas Premium Alta Qualidade</h3>
+                <span class="card-price">R$ 35,88</span>
+            </div>
+            <a href="https://meli.la/1cnm2Sf" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
-        <span class="btn-buy">Ver Oferta</span>
-      </a>
     
-      <a href="https://meli.la/1fqnnC7" target="_blank" rel="noopener noreferrer" class="product-card">
-        <img src="fotos/fotos/kit_ferramentas.png" alt="Kit Ferramentas 46 Peças Com Soquetes e Chaves Para Carro e Casa" class="product-thumb" />
-        <div class="product-info">
-          <div class="product-name">Kit Ferramentas 46 Peças Com Soquetes e Chaves Para Carro e Casa</div>
-          <div class="product-price">R$ 28,50</div>
+        <div class="card">
+            <img src="fotos/fotos/kit_ferramentas.png" alt="Kit Ferramentas 46 Peças Com Soquetes e Chaves Para Carro e Casa" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Kit Ferramentas 46 Peças Com Soquetes e Chaves Para Carro e Casa</h3>
+                <span class="card-price">R$ 28,50</span>
+            </div>
+            <a href="https://meli.la/1fqnnC7" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
-        <span class="btn-buy">Ver Oferta</span>
-      </a>
     
-    </div>
+        <div class="card">
+            <img src="fotos/fotos/mini_mixer.png" alt="Mini Mixer Misturador De Bebidas Elétrico 2 Em 1 Portátil Recarregável" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Mini Mixer Misturador De Bebidas Elétrico 2 Em 1 Portátil Recarregável</h3>
+                <span class="card-price">R$ 19,89</span>
+            </div>
+            <a href="https://meli.la/2ab7bb7" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
+        </div>
+    
+    </main>
 
     <footer>
-      <p>✨ "Eis que tudo se fez novo."</p>
+        ✨ "Eis que tudo se fez novo."
     </footer>
-  </div>
 </body>
 </html>

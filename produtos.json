@@ -54,5 +54,13 @@
     "comissao": "34% OFF",
     "link": "https://meli.la/1fqnnC7",
     "imagem": "fotos/fotos/kit_ferramentas.png"
+  },
+  {
+    "id": 8,
+    "produto": "Mini Mixer Misturador De Bebidas Elétrico 2 Em 1 Portátil Recarregável",
+    "preco": "R$ 19,89",
+    "comissao": "60% OFF",
+    "link": "https://meli.la/2ab7bb7",
+    "imagem": "fotos/fotos/mini_mixer.png"
   }
 ]
