@@ -70,45 +70,5 @@
     "comissao": "Mais Vendido",
     "link": "https://meli.la/1XJNfWH",
     "imagem": "fotos/fotos/bola_interativa.png"
-  },
-  {
-    "id": 10,
-    "produto": "",
-    "preco": "R$ 174",
-    "comissao": "Oferta",
-    "link": "https://meli.la/12W2Hjq",
-    "imagem": "fotos/fotos/.png"
-  },
-  {
-    "id": 11,
-    "produto": "",
-    "preco": "R$ 157",
-    "comissao": "Oferta",
-    "link": "https://meli.la/2aNLxag",
-    "imagem": "fotos/fotos/.png"
-  },
-  {
-    "id": 12,
-    "produto": "",
-    "preco": "R$ 157",
-    "comissao": "Oferta",
-    "link": "https://meli.la/2aNLxag",
-    "imagem": "fotos/fotos/.png"
-  },
-  {
-    "id": 13,
-    "produto": "",
-    "preco": "R$ 119",
-    "comissao": "Oferta",
-    "link": "https://meli.la/17hBoFJ",
-    "imagem": "fotos/fotos/.png"
-  },
-  {
-    "id": 14,
-    "produto": "",
-    "preco": "R$ 229",
-    "comissao": "Oferta",
-    "link": "https://meli.la/1nwwnBa",
-    "imagem": "fotos/fotos/.png"
   }
 ]
