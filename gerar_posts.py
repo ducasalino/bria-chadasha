@@ -16,9 +16,9 @@ for item in produtos:
     link = item["link"]
     imagem = item["imagem"]
 
-    # Card HTML da vitrine
+    # Card HTML da vitrine (com data-title para busca rápida)
     cards_html += f"""
-        <div class="card">
+        <div class="card" data-title="{nome.lower()}">
             <img src="{imagem}" alt="{nome}" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">{nome}</h3>
@@ -44,7 +44,7 @@ Achadinho imperdível no Mercado Livre! 🔥
 \n"""
     legendas_insta.append(legenda)
 
-# 3. Template alinhado com a paleta e estilo oficial da logo
+# 3. Template com barra de pesquisa interativa
 html_template = f"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -62,7 +62,6 @@ html_template = f"""<!DOCTYPE html>
             font-family: 'Plus Jakarta Sans', sans-serif;
         }}
         body {{
-            /* Cor de fundo baseada no tom bege/linho suave da logo */
             background-color: #f4efe6;
             background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #f4efe6 80%);
             background-attachment: fixed;
@@ -76,7 +75,7 @@ html_template = f"""<!DOCTYPE html>
             overflow-x: hidden;
         }}
 
-        /* Marca d'água usando o próprio símbolo da logo */
+        /* Marca d'água sutil ao fundo */
         body::before {{
             content: "";
             position: fixed;
@@ -94,10 +93,9 @@ html_template = f"""<!DOCTYPE html>
             z-index: 0;
         }}
 
-        /* Cabeçalho com o logo oficial centralizado */
         header {{
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             position: relative;
             z-index: 1;
             display: flex;
@@ -143,6 +141,51 @@ html_template = f"""<!DOCTYPE html>
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-top: 6px;
+        }}
+
+        /* Barra de pesquisa */
+        .search-container {{
+            width: 100%;
+            max-width: 520px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }}
+        .search-input {{
+            width: 100%;
+            padding: 14px 20px 14px 44px;
+            border-radius: 30px;
+            border: 1px solid rgba(11, 37, 69, 0.12);
+            background: #ffffff;
+            font-size: 0.95rem;
+            color: #1a202c;
+            box-shadow: 0 4px 15px rgba(11, 37, 69, 0.05);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }}
+        .search-input:focus {{
+            border-color: #0b2545;
+            box-shadow: 0 6px 20px rgba(11, 37, 69, 0.1);
+        }}
+        .search-icon {{
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            color: #8da9c4;
+            pointer-events: none;
+        }}
+
+        /* Mensagem quando nenhum produto é encontrado */
+        .empty-search {{
+            display: none;
+            text-align: center;
+            color: #5c6b73;
+            font-size: 1rem;
+            margin-top: 20px;
+            width: 100%;
+            grid-column: 1 / -1;
         }}
 
         /* Grid dos produtos */
@@ -237,13 +280,44 @@ html_template = f"""<!DOCTYPE html>
         <p class="subtitle">Ofertas & Achados</p>
     </header>
 
-    <main class="container">
+    <!-- Caixa de Busca -->
+    <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Buscar achadinho por nome...">
+    </div>
+
+    <main class="container" id="productsGrid">
         {cards_html}
+        <div id="emptyMessage" class="empty-search">Nenhum produto encontrado para sua busca.</div>
     </main>
 
     <footer>
         ✨ "Eis que tudo se fez novo."
     </footer>
+
+    <!-- Script de Busca Instantânea -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.card');
+        const emptyMessage = document.getElementById('emptyMessage');
+
+        searchInput.addEventListener('input', (e) => {{
+            const termo = e.target.value.toLowerCase().trim();
+            let visiveis = 0;
+
+            cards.forEach(card => {{
+                const titulo = card.getAttribute('data-title');
+                if (titulo.includes(termo)) {{
+                    card.style.display = 'flex';
+                    visiveis++;
+                }} else {{
+                    card.style.display = 'none';
+                }}
+            }});
+
+            emptyMessage.style.display = (visiveis === 0) ? 'block' : 'none';
+        }});
+    </script>
 </body>
 </html>
 """
@@ -257,5 +331,5 @@ with open("legendas_instagram.txt", "w", encoding="utf-8") as f:
     f.writelines(legendas_insta)
 
 print(" Tudo pronto!")
-print(" Vitrine index.html integrada com a identidade visual da marca!")
+print(" Vitrine index.html atualizada com barra de busca instantânea!")
 print(" Arquivo 'legendas_instagram.txt' atualizado!")

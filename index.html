@@ -15,7 +15,6 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
         body {
-            /* Cor de fundo baseada no tom bege/linho suave da logo */
             background-color: #f4efe6;
             background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #f4efe6 80%);
             background-attachment: fixed;
@@ -29,7 +28,7 @@
             overflow-x: hidden;
         }
 
-        /* Marca d'água usando o próprio símbolo da logo */
+        /* Marca d'água sutil ao fundo */
         body::before {
             content: "";
             position: fixed;
@@ -47,10 +46,9 @@
             z-index: 0;
         }
 
-        /* Cabeçalho com o logo oficial centralizado */
         header {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             position: relative;
             z-index: 1;
             display: flex;
@@ -96,6 +94,51 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-top: 6px;
+        }
+
+        /* Barra de pesquisa */
+        .search-container {
+            width: 100%;
+            max-width: 520px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        .search-input {
+            width: 100%;
+            padding: 14px 20px 14px 44px;
+            border-radius: 30px;
+            border: 1px solid rgba(11, 37, 69, 0.12);
+            background: #ffffff;
+            font-size: 0.95rem;
+            color: #1a202c;
+            box-shadow: 0 4px 15px rgba(11, 37, 69, 0.05);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .search-input:focus {
+            border-color: #0b2545;
+            box-shadow: 0 6px 20px rgba(11, 37, 69, 0.1);
+        }
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            color: #8da9c4;
+            pointer-events: none;
+        }
+
+        /* Mensagem quando nenhum produto é encontrado */
+        .empty-search {
+            display: none;
+            text-align: center;
+            color: #5c6b73;
+            font-size: 1rem;
+            margin-top: 20px;
+            width: 100%;
+            grid-column: 1 / -1;
         }
 
         /* Grid dos produtos */
@@ -190,9 +233,15 @@
         <p class="subtitle">Ofertas & Achados</p>
     </header>
 
-    <main class="container">
+    <!-- Caixa de Busca -->
+    <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Buscar achadinho por nome...">
+    </div>
+
+    <main class="container" id="productsGrid">
         
-        <div class="card">
+        <div class="card" data-title="creatina 1kg monohidratada soldiers nutrition">
             <img src="fotos/fotos/creatina.png" alt="Creatina 1kg Monohidratada Soldiers Nutrition" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Creatina 1kg Monohidratada Soldiers Nutrition</h3>
@@ -201,7 +250,7 @@
             <a href="https://meli.la/2mXv6JZ" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="kit 2 refletor super led 400w">
             <img src="fotos/fotos/refletor_led.png" alt="Kit 2 Refletor Super Led 400w" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Kit 2 Refletor Super Led 400w</h3>
@@ -210,7 +259,7 @@
             <a href="https://meli.la/13Ri2S2" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="jogo de talheres faqueiro búzios tramontina 24 peças inox">
             <img src="fotos/fotos/faqueiro_tramontina.png" alt="Jogo de Talheres Faqueiro Búzios Tramontina 24 Peças Inox" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Jogo de Talheres Faqueiro Búzios Tramontina 24 Peças Inox</h3>
@@ -219,7 +268,7 @@
             <a href="https://meli.la/1CmKTrx" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="espremedor de frutas mondial premium 30w e-02 jarra 1,25l">
             <img src="fotos/fotos/espremedor_mondial.png" alt="Espremedor de Frutas Mondial Premium 30W E-02 Jarra 1,25L" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Espremedor de Frutas Mondial Premium 30W E-02 Jarra 1,25L</h3>
@@ -228,7 +277,7 @@
             <a href="https://meli.la/1tCg8qh" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="molde para hambúrguer caseiro forma de alumínio multiuso">
             <img src="fotos/fotos/molde_hamburguer.png" alt="Molde Para Hambúrguer Caseiro Forma De Alumínio Multiuso" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Molde Para Hambúrguer Caseiro Forma De Alumínio Multiuso</h3>
@@ -237,7 +286,7 @@
             <a href="https://meli.la/22aaZVK" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="kit 21 peças potes herméticos c/ tampas premium alta qualidade">
             <img src="fotos/fotos/potes_hermeticos.png" alt="Kit 21 Peças Potes Herméticos C/ Tampas Premium Alta Qualidade" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Kit 21 Peças Potes Herméticos C/ Tampas Premium Alta Qualidade</h3>
@@ -246,7 +295,7 @@
             <a href="https://meli.la/1cnm2Sf" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="kit ferramentas 46 peças com soquetes e chaves para carro e casa">
             <img src="fotos/fotos/kit_ferramentas.png" alt="Kit Ferramentas 46 Peças Com Soquetes e Chaves Para Carro e Casa" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Kit Ferramentas 46 Peças Com Soquetes e Chaves Para Carro e Casa</h3>
@@ -255,7 +304,7 @@
             <a href="https://meli.la/1fqnnC7" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="mini mixer misturador de bebidas elétrico 2 em 1 portátil recarregável">
             <img src="fotos/fotos/mini_mixer.png" alt="Mini Mixer Misturador De Bebidas Elétrico 2 Em 1 Portátil Recarregável" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Mini Mixer Misturador De Bebidas Elétrico 2 Em 1 Portátil Recarregável</h3>
@@ -264,7 +313,7 @@
             <a href="https://meli.la/2ab7bb7" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="bola elétrica interativa brinquedo inteligente para gato e cachorro">
             <img src="fotos/fotos/bola_interativa.png" alt="Bola Elétrica Interativa Brinquedo Inteligente Para Gato e Cachorro" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Bola Elétrica Interativa Brinquedo Inteligente Para Gato e Cachorro</h3>
@@ -273,7 +322,7 @@
             <a href="https://meli.la/1XJNfWH" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="varal de chão grande de roupas 3 andares dobrável cor azul kontuz 170 cm">
             <img src="fotos/fotos/item_10_varal_de_chão_grande_de_r.png" alt="Varal De Chão Grande De Roupas 3 Andares Dobrável Cor Azul Kontuz 170 cm" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Varal De Chão Grande De Roupas 3 Andares Dobrável Cor Azul Kontuz 170 cm</h3>
@@ -282,7 +331,7 @@
             <a href="https://meli.la/17hBoFJ" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="tênis masculino feminino kappa park 2.0 original">
             <img src="fotos/fotos/item_11_tênis_masculino_feminino_.png" alt="Tênis Masculino Feminino Kappa Park 2.0 Original" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Tênis Masculino Feminino Kappa Park 2.0 Original</h3>
@@ -291,7 +340,7 @@
             <a href="https://meli.la/2XPqcMi" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="ventilador de mesa 30cm super power mondial 60w vsp-30-b">
             <img src="fotos/fotos/item_12_ventilador_de_mesa_30cm_s.png" alt="Ventilador de Mesa 30cm Super Power Mondial 60W VSP-30-B" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Ventilador de Mesa 30cm Super Power Mondial 60W VSP-30-B</h3>
@@ -300,7 +349,7 @@
             <a href="https://meli.la/1ui915y" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="o boticário insensatez deo colônia 100ml">
             <img src="fotos/fotos/item_13_o_boticário_insensatez_de.png" alt="O Boticário Insensatez Deo Colônia 100ml" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">O Boticário Insensatez Deo Colônia 100ml</h3>
@@ -309,7 +358,7 @@
             <a href="https://meli.la/12W2Hjq" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="bicicleta elétrica altrax 350w 500w 1000w 48v 60km mobility preto - 350w 14">
             <img src="fotos/fotos/item_14_bicicleta_elétrica_altrax.png" alt="Bicicleta Elétrica Altrax 350w 500w 1000w 48v 60km Mobility Preto - 350w 14" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Bicicleta Elétrica Altrax 350w 500w 1000w 48v 60km Mobility Preto - 350w 14</h3>
@@ -318,7 +367,7 @@
             <a href="https://meli.la/2aNBznW" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="parafusadeira e furadeira impacto the black tools tb-21pw 3/8 cor amarelo frequência 50/60 hz">
             <img src="fotos/fotos/item_15_parafusadeira_e_furadeira.png" alt="Parafusadeira E Furadeira Impacto The Black Tools Tb-21pw 3/8 Cor Amarelo Frequência 50/60 Hz" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Parafusadeira E Furadeira Impacto The Black Tools Tb-21pw 3/8 Cor Amarelo Frequência 50/60 Hz</h3>
@@ -327,7 +376,7 @@
             <a href="https://meli.la/197FPBc" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="l'oréal paris elseve collagen lifter leave-in sérum capilar para cabelos finos injeção de massa com peptídeos de colágeno aumenta o volume em 61% e encorpa os fios por 72h 100ml">
             <img src="fotos/fotos/item_16_loréal_paris_elseve_colla.png" alt="L'oréal Paris Elseve Collagen Lifter Leave-in Sérum Capilar Para Cabelos Finos Injeção de Massa com Peptídeos de Colágeno Aumenta o Volume em 61% e Encorpa os Fios por 72h 100ml" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">L'oréal Paris Elseve Collagen Lifter Leave-in Sérum Capilar Para Cabelos Finos Injeção de Massa com Peptídeos de Colágeno Aumenta o Volume em 61% e Encorpa os Fios por 72h 100ml</h3>
@@ -336,7 +385,7 @@
             <a href="https://meli.la/1iqbYg9" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="lixeira inteligente automática cinza universal com sensor recarregável earman company anti odor 16l recarregável usb">
             <img src="fotos/fotos/item_17_lixeira_inteligente_autom.png" alt="Lixeira Inteligente Automática Cinza Universal Com Sensor Recarregável Earman Company Anti Odor 16l Recarregável Usb" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Lixeira Inteligente Automática Cinza Universal Com Sensor Recarregável Earman Company Anti Odor 16l Recarregável Usb</h3>
@@ -345,7 +394,7 @@
             <a href="https://meli.la/1BYgiHH" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
-        <div class="card">
+        <div class="card" data-title="fritadeira elétrica afon-12l-bg forno oven 12 litros preto mondial">
             <img src="fotos/fotos/item_18_fritadeira_elétrica_afon_.png" alt="Fritadeira Elétrica AFON-12L-BG Forno Oven 12 Litros Preto Mondial" class="card-img">
             <div class="card-info">
                 <h3 class="card-title">Fritadeira Elétrica AFON-12L-BG Forno Oven 12 Litros Preto Mondial</h3>
@@ -354,10 +403,35 @@
             <a href="https://meli.la/2rXyarL" target="_blank" rel="noopener noreferrer" class="btn-oferta">Ver Oferta</a>
         </div>
     
+        <div id="emptyMessage" class="empty-search">Nenhum produto encontrado para sua busca.</div>
     </main>
 
     <footer>
         ✨ "Eis que tudo se fez novo."
     </footer>
+
+    <!-- Script de Busca Instantânea -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.card');
+        const emptyMessage = document.getElementById('emptyMessage');
+
+        searchInput.addEventListener('input', (e) => {
+            const termo = e.target.value.toLowerCase().trim();
+            let visiveis = 0;
+
+            cards.forEach(card => {
+                const titulo = card.getAttribute('data-title');
+                if (titulo.includes(termo)) {
+                    card.style.display = 'flex';
+                    visiveis++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            emptyMessage.style.display = (visiveis === 0) ? 'block' : 'none';
+        });
+    </script>
 </body>
 </html>
