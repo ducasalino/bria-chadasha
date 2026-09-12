@@ -144,7 +144,7 @@ html_template = f"""<!DOCTYPE html>
         }}
 
         /* Barra de pesquisa */
-        ./* Barra de pesquisa mais esticada e fina */
+        /* Barra de pesquisa mais esticada e fina */
         .search-container {
             width: 100%;
             max-width: 680px;
@@ -178,7 +178,6 @@ html_template = f"""<!DOCTYPE html>
             color: #8da9c4;
             pointer-events: none;
         }
-        }}
 
         /* Mensagem quando nenhum produto é encontrado */
         .empty-search {{
