@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "produto": "Creatina 1kg Monohidratada Soldiers Nutrition",
+    "preco": "R$ 77,90",
+    "comissao": "20%",
+    "link": "https://meli.la/2mXv6JZ",
+    "imagem": "fotos/fotos/creatina.png"
+  },
+  {
+    "id": 2,
+    "produto": "Kit 2 Refletor Super Led 400w",
+    "preco": "R$ 43,77",
+    "comissao": "62%",
+    "link": "https://meli.la/13Ri2S2",
+    "imagem": "fotos/fotos/refletor_led.png"
+  },
+  {
+    "id": 3,
+    "produto": "Jogo de Talheres Faqueiro Búzios Tramontina 24 Peças Inox",
+    "preco": "R$ 57,79",
+    "comissao": "46% OFF",
+    "link": "https://meli.la/1CmKTrx",
+    "imagem": "fotos/fotos/faqueiro_tramontina.png"
+  },
+  {
+    "id": 4,
+    "produto": "Espremedor de Frutas Mondial Premium 30W E-02 Jarra 1,25L",
+    "preco": "R$ 62,00",
+    "comissao": "40% OFF",
+    "link": "https://meli.la/1tCg8qh",
+    "imagem": "fotos/fotos/espremedor_mondial.png"
+  },
+  {
+    "id": 5,
+    "produto": "Molde Para Hambúrguer Caseiro Forma De Alumínio Multiuso",
+    "preco": "R$ 24,70",
+    "comissao": "64% OFF",
+    "link": "https://meli.la/22aaZVK",
+    "imagem": "fotos/fotos/molde_hamburguer.png"
+  }
+]
