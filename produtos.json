@@ -70,5 +70,13 @@
     "comissao": "Mais Vendido",
     "link": "https://meli.la/1XJNfWH",
     "imagem": "fotos/fotos/bola_interativa.png"
+  },
+  {
+    "id": 10,
+    "produto": "",
+    "preco": "R$ 174",
+    "comissao": "Oferta",
+    "link": "https://meli.la/12W2Hjq",
+    "imagem": "fotos/fotos/.png"
   }
 ]
