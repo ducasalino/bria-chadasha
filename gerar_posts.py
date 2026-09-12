@@ -144,37 +144,40 @@ html_template = f"""<!DOCTYPE html>
         }}
 
         /* Barra de pesquisa */
-        .search-container {{
+        ./* Barra de pesquisa mais esticada e fina */
+        .search-container {
             width: 100%;
-            max-width: 520px;
-            margin-bottom: 30px;
+            max-width: 680px;
+            margin-bottom: 28px;
             position: relative;
             z-index: 2;
-        }}
-        .search-input {{
+        }
+        .search-input {
             width: 100%;
-            padding: 14px 20px 14px 44px;
-            border-radius: 30px;
+            padding: 9px 18px 9px 40px;
+            border-radius: 20px;
             border: 1px solid rgba(11, 37, 69, 0.12);
             background: #ffffff;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
+            font-weight: 400;
             color: #1a202c;
-            box-shadow: 0 4px 15px rgba(11, 37, 69, 0.05);
+            box-shadow: 0 2px 8px rgba(11, 37, 69, 0.04);
             outline: none;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }}
-        .search-input:focus {{
+        }
+        .search-input:focus {
             border-color: #0b2545;
-            box-shadow: 0 6px 20px rgba(11, 37, 69, 0.1);
-        }}
-        .search-icon {{
+            box-shadow: 0 4px 14px rgba(11, 37, 69, 0.08);
+        }
+        .search-icon {
             position: absolute;
-            left: 16px;
+            left: 14px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 1rem;
+            font-size: 0.85rem;
             color: #8da9c4;
             pointer-events: none;
+        }
         }}
 
         /* Mensagem quando nenhum produto é encontrado */
